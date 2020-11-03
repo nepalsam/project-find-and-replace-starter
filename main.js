@@ -17,11 +17,20 @@ const rowElements = document.querySelectorAll(".row")
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
 function getCellElements (currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
+    return currentRowElement.querySelectorAll(".cell");
+}
+const cellElements = []
+
+for(let rowIndex = 0; rowIndex < rowElements.length; rowIndex++){
+    cellElements.push(getCellElements(rowElements[rowIndex]));
 }
 
+inputString = ""
+replacementString = ""
 
-// YOUR CODE GOES HERE
-
+replaceAllButton.addEventListener('click', function(){
+    inputString = findInput.value;
+    replacementString = replaceInput.value;
 
 // One last thing: dedicate very careful attention to using variables and
 // naming them accurately.
@@ -36,3 +45,12 @@ function getCellElements (currentRowElement) {
 //
 // You can, of course, remove any comments in this starter project once
 // you have read them, if you prefer.
+
+for(let rowIndex = 0; rowIndex < cellElements.length; rowIndex++){  
+    for(let columnIndex = 0; columnIndex < cellElements[rowIndex].length; columnIndex++){
+        if(cellElements[rowIndex][columnIndex].innerText.includes(inputString) === true){
+            cellElements[rowIndex][columnIndex].innerHTML = cellElements[rowIndex][columnIndex].innerHTML.replace(inputString, replacementString);
+        }
+    }
+}
+})
