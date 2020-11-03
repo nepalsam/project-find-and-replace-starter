@@ -25,8 +25,8 @@ for(let rowIndex = 0; rowIndex < rowElements.length; rowIndex++){
     cellElements.push(getCellElements(rowElements[rowIndex]));
 }
 
-inputString = ""
-replacementString = ""
+//inputString = ""
+//replacementString = ""
 
 replaceAllButton.addEventListener('click', function(){
     inputString = findInput.value;
